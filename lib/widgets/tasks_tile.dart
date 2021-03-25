@@ -8,7 +8,28 @@ class TaskTile extends StatelessWidget {
         'Buy Milk',
         style: TextStyle(fontSize: 26),
       ),
-      trailing: Checkbox(value: false),
+      trailing: TaskCheckbox(),
+    );
+  }
+}
+
+class TaskCheckbox extends StatefulWidget {
+  @override
+  _TaskCheckboxState createState() => _TaskCheckboxState();
+}
+
+class _TaskCheckboxState extends State<TaskCheckbox> {
+  bool isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(
+      value: isChecked,
+      activeColor: Colors.lightBlueAccent,
+      onChanged: (newValue) {
+        setState(() {
+          isChecked = newValue;
+        });
+      },
     );
   }
 }
